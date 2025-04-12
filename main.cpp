@@ -1,24 +1,25 @@
-#include "ContactManager.h" 
+#include "Contact_manager.h"
 int main() {
     ContactManager manager;
-    int choice;
+    const string dataFileName = "Contacts.txt";
+    manager.loadFromFile(dataFileName);
 
+    int choice;
     while (true) {
         cout << "\n***** Contact Manager Menu *****\n";
         cout << "1) Add Contact\n";
-        cout << "2) Search Contact by Phone\n";
-        cout << "3) Delete Contact by Phone\n";
-        cout << "4) Print All Contacts\n";
-        cout << "5) Search Contact by Name\n";
-        cout << "6) Load Contacts from file\n";
-        cout << "7) save Contacts to file\n";
-        cout << "8) Exit\n";
+        cout << "2) Edit Contact\n";     
+        cout << "3) Search Contact \n";
+        cout << "4) Delete Contact \n";
+        cout << "5) Print All Contacts\n";
+        cout << "6) Exit\n";
         cout << "Enter your choice: ";
 
         cin >> choice;
         cin.ignore();
 
         switch (choice) {
+            //ADD
             case 1: {
                 int num;
                 string name, phone, email;
@@ -46,14 +47,38 @@ int main() {
                 }
                 break;
             }
+            //EDIT
             case 2: {
+
                 string phone;
-                cout << "Enter Phone number to search: ";
+                cout << "Enter Phone number to edit: ";
                 getline(cin, phone);
-                manager.search(phone);
+                manager.editContact(phone);
                 break;
             }
+            //SEARCH
             case 3: {
+                int sChoice;
+                cout << "Do you want by name or by number? [0] or [1]\n";
+                cin >> sChoice;
+                cin.ignore(); 
+
+                if(sChoice == 0){
+                    string Name;
+                    cout << "Enter Name to search: ";
+                    getline(cin, Name);
+                    manager.searchByName(Name);
+                }
+                else if(sChoice == 1){
+                    string phone;
+                    cout << "Enter Phone number to search: ";
+                    getline(cin, phone);
+                    manager.searchByNumber(phone);
+                }
+                break;
+            }
+            //DELETE
+            case 4: {
                 string phone;
                 cout << "Enter Phone number to delete: ";
                 getline(cin, phone);
@@ -61,32 +86,14 @@ int main() {
                 manager.deleteContact(phone);
                 break;
             }
-            case 4: {
+            //PRINT
+            case 5: {
                 manager.printAll();
                 break;
             }
-            case 5: {
-            string Name;
-                cout << "Enter Name to search: ";
-                getline(cin, Name);
-                manager.searchByName(Name);
-                break;
-            }
+            //EXIT
             case 6: {
-                string filename;
-                cout << "Enter filename to load from: ";
-                getline(cin, filename);
-                manager.loadFromFile(filename);
-                break;
-            }
-            case 7: {
-                string filename;
-                cout << "Enter filename to save to: ";
-                getline(cin, filename);
-                manager.saveToFile(filename);
-                break;
-            }
-            case 8: {
+                manager.saveToFile(dataFileName);
                 cout << "Exiting program\n";
                 return 0;
             }
@@ -94,5 +101,4 @@ int main() {
                 cout << "Invalid choice Please try again\n";
         }
     }
-
 }
