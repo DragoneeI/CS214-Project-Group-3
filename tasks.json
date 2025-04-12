@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "cppbuild",
+      "label": "C/C++: Build and Run",
+      "command": "powershell",
+      "args": [
+        "-Command",
+        "Remove-Item -Force main.exe -ErrorAction SilentlyContinue; C:/msys64/ucrt64/bin/g++.exe main.cpp Contact_manager.cpp -o main.exe; if ($?) { Start-Process ./main.exe }"
+      ],
+
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "detail": "Build and run using MSYS2 g++"
+    }
+  ]
+}
