@@ -59,7 +59,7 @@ int main() {
             //SEARCH
             case 3: {
                 int sChoice;
-                cout << "Do you want by name or by number? [0] or [1]\n";
+                cout << "Do you want by name or by number? [0] or [1] :";
                 cin >> sChoice;
                 cin.ignore(); 
 
