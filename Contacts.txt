@@ -1,0 +1,10 @@
+Ali Fahad,0551234567,ali@gmail.com
+Amal Saleh,0503344556,amal@gmail.com
+Ahmed Turki,0576655443,ahmed@yahoo.com
+Abdullah Saad,0567788990,abdullah@gmail.com
+Faisal Hassan,0525566778,faisal@gmail.com
+Khaled Mansour,0541122334,khaled@yahoo.com
+Mona Ali,0519988776,mona@hotmail.com
+Nada Zahrani,0584433221,nada@gmail.com
+Rahhal Makki,0539488060,rahhal@gmail.com
+Sara Omar,0539876543,sara@hotmail.com
