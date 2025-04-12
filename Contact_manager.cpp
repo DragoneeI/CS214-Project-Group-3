@@ -151,7 +151,7 @@ void ContactManager::printAll() {
     for (int i = 0; i < tableSize; i++) {
         Node* temp = table[i];
         if (temp != nullptr) {
-            cout << "Contacts starting with '" << char('A' + i) << "':\n";
+            cout << "\nContacts starting with '" << char('A' + i) << "':\n";
             while (temp != nullptr) {
                 cout << "  Name: " << temp->data.getN()
                      << ", Phone: " << temp->data.getP()
